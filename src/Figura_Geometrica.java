@@ -1,12 +1,7 @@
 import java.util.Scanner;
 public class Figura_Geometrica {
     //Atributos
-    float base;
-    float altura;
-    float total;
-    float lados;
-    float lado2;
-    float largo;
+    float base, altura, total,lados,lado2,largo;
     Scanner entrada = new Scanner(System.in);
     //Constructor
     public Figura_Geometrica(){
@@ -17,7 +12,6 @@ public class Figura_Geometrica {
         lado2 = 0;
         largo = 0;
     }
-    //Menu de opciones
     int menu(){
         int op = -1;
         while ((op < 0) || (op > 4)) {
@@ -30,14 +24,11 @@ public class Figura_Geometrica {
             op = entrada.nextInt();
 
             if((op < 0) || (op > 4)){
-                System.out.println("--------------------");
-                System.out.println("| Opcion no valida |");
-                System.out.println("--------------------");
+                System.out.println("Opcion no valida");
             }
         }
         return op;
-    }//Fin del menu de opciones
-    //Menu para escoger las figuras
+    }
     int menu_figuras(){
         int op = -1;
         while ((op < 0) || (op > 3)) {
@@ -67,9 +58,7 @@ public class Figura_Geometrica {
             }
         }
         return op;
-    }//Fin del menu_triangulos
-
-    //Menu para escoger de que figura se quiere sacar el volumen
+    }
     int menu_volumenes(){
         int op = -1;
         while ((op < 5) || (op > 7)) {
@@ -96,7 +85,7 @@ public class Figura_Geometrica {
         }
         else {
             total = getAltura() * getBase();
-            System.out.println("El area del cuadrado es: " + total);
+            System.out.println("El area del cuadrado es: " +Math.round(total));
         }
     }
     public void triangulo_area(Figura_Geometrica datos2){
@@ -116,7 +105,6 @@ public class Figura_Geometrica {
         System.out.println("El area del regtangulo es: " + total);
 
     }
-    //Perimetro de las figuras geometricas
     public void cuadrado_perimetro(Figura_Geometrica datos4){
         System.out.println("Ingrese la dimension del cuadrado");
         datos4.setLados(entrada.nextFloat());
@@ -155,7 +143,6 @@ public class Figura_Geometrica {
         total = getAltura() + getAltura() + getBase() + getBase();
         System.out.println("El perimetro del regtangulo es: " +  total);
     }
-    //Volumen de las figuras geometricas
     public void cubo_volumen(Figura_Geometrica datos7){
         System.out.println("Ingrese la dimencion de los lados del cubo:");
         datos7.setLados(entrada.nextFloat());
@@ -169,8 +156,8 @@ public class Figura_Geometrica {
         datos8.setAltura(entrada.nextFloat());
         System.out.println("Ingrese el largo: ");
         datos8.setLargo(entrada.nextFloat());
-        total = (getBase() * getAltura()) / 2 ; //Estos sacando el área
-        total *= getLargo(); //Multiplico el área por el largo y la almaceno en la misma variable
+        total = (getBase() * getAltura()) / 2 ;
+        total *= getLargo();
         System.out.println("El volumen del prisma triangular es: " + total);
     }
     public void piramide_volumen(Figura_Geometrica datos9){
@@ -179,8 +166,6 @@ public class Figura_Geometrica {
         System.out.println("Ingrese el lado: ");
         datos9.setLados(entrada.nextFloat());
         total = (((getLados() * getLados()) * getAltura()) / 3);
-        //Estoy claculando el area base de la piramide multiplicando los dos lados
-        //Luego utilizo la fromula para sacar el volumen de una piramide
         System.out.println("El volumen de la piramide es: " + total);
     }
     //SETTER AND GETTER
